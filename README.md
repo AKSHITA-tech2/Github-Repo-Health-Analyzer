@@ -52,4 +52,7 @@ This approach avoids black-box ML and keeps the evaluation **transparent and int
 
 ---
 ## 📸 Screenshot of Analysis
-<img width="1250" height="695" alt="image" src="https://github.com/user-attachments/assets/c5036d32-2b58-461a-8cda-66c008308d5d" />
+<img width="988" height="273" alt="image" src="https://github.com/user-attachments/assets/b449c3d5-0e2f-434e-9b3a-84368f721117" />
+<img width="1611" height="503" alt="image" src="https://github.com/user-attachments/assets/597333a1-8cc4-4a6d-9ae8-5bb6fb40817a" />
+
+
