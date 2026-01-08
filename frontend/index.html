@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Akshita Raghavan</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Hacker monospace font -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>🛡 Cybersecurity GitHub Repo Analyzer</h1>
+    <p class="subtitle">Threat-checking your repository… like a hacker 😎</p>
+</header>
+
+<main>
+    <div class="input-row glass-box">
+        <input
+            type="text"
+            id="repoUrl"
+            placeholder="> Enter repo URL (e.g. https://github.com/user/project)"
+        />
+        <button onclick="analyzeRepo()">SCAN ⚡</button>
+    </div>
+
+    <p id="error" class="error"></p>
+
+    <section id="dashboard" class="hidden glass-box">
+        <h2 id="repoName" class="glitch"></h2>
+
+        <div class="cards">
+            <div class="card neon-border">
+                ⭐ Stars
+                <span id="stars"></span>
+            </div>
+            <div class="card neon-border">
+                🍴 Forks
+                <span id="forks"></span>
+            </div>
+            <div class="card neon-border">
+                🐛 Issues
+                <span id="issues"></span>
+            </div>
+            <div class="card neon-border">
+                📝 README Score
+                <span id="readmeScore"></span>/100
+            </div>
+        </div>
+
+        <div class="readme-bar">
+            <div id="readmeFill"></div>
+        </div>
+
+        <div id="healthBadge" class="badge"></div>
+    </section>
+</main>
+
+<!-- Matrix Rain Background -->
+<canvas id="matrix"></canvas>
+
+<script src="script.js"></script>
+<script>
+/* MATRIX RAIN BACKGROUND 🌧🟢 */
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const chars = "01{}[]<>/\\|=+-_#*@&$%";
+const drops = Array(Math.floor(canvas.width / 15)).fill(1);
+
+function draw() {
+  ctx.fillStyle = "rgba(5,8,10,0.08)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#00ff9c";
+  ctx.font = "16px Share Tech Mono";
+
+  drops.forEach((y, x) => {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(text, x * 15, y * 15);
+
+    drops[x] = y * 15 > canvas.height || Math.random() > 0.97 ? 0 : y + 1;
+  });
+}
+
+setInterval(draw, 40);
+
+window.onresize = () => {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+};
+</script>
+
+</body>
+</html>
